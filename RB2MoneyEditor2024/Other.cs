@@ -9,7 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using System.Diagnostics;
 
-namespace RB2MoneyEditor2024.x360
+namespace RB2MoneyEditor2025.x360
 {
     [DebuggerStepThrough]
     internal static class ByteArrayExtentsion

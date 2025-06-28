@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace RB2MoneyEditor2024
+namespace RB2MoneyEditor2025
 {
     partial class MainForm
     {
@@ -74,7 +74,7 @@ namespace RB2MoneyEditor2024
             // 
             this.imgBanner.BackColor = System.Drawing.Color.Transparent;
             this.imgBanner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.imgBanner.Image = global::RB2MoneyEditor2024.Properties.Resources.header;
+            this.imgBanner.Image = global::RB2MoneyEditor2025.Properties.Resources.header;
             this.imgBanner.Location = new System.Drawing.Point(-8, 193);
             this.imgBanner.Name = "imgBanner";
             this.imgBanner.Size = new System.Drawing.Size(269, 96);

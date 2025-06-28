@@ -9,12 +9,12 @@ using System.Drawing;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using RB2MoneyEditor2024.x360;
+using RB2MoneyEditor2025.x360;
 using Microsoft.Win32.SafeHandles;
 
 #region Extensions
 
-namespace RB2MoneyEditor2024.x360
+namespace RB2MoneyEditor2025.x360
 {
     /// <summary>
     /// Class to hold IO extensions
@@ -158,7 +158,7 @@ namespace X360.IO.ExtraExtensions
 }
 #endregion
 
-namespace RB2MoneyEditor2024.x360
+namespace RB2MoneyEditor2025.x360
 {
     #region Enums
 

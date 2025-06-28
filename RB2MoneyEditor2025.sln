@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RB2MoneyEditor2024", "RB2MoneyEditor2024\RB2MoneyEditor2024.csproj", "{3F508503-B089-488E-A2A9-7228D11F96EA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RB2MoneyEditor2025", "RB2MoneyEditor2024\RB2MoneyEditor2025.csproj", "{3F508503-B089-488E-A2A9-7228D11F96EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

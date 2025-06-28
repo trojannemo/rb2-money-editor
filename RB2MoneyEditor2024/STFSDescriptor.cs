@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace RB2MoneyEditor2024.x360
+namespace RB2MoneyEditor2025.x360
 {
     [StructLayout(LayoutKind.Sequential, Pack = 1, Size = 7)]
     internal class BlockRecord

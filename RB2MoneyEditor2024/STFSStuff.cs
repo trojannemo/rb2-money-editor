@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Diagnostics;
 
-namespace RB2MoneyEditor2024.x360
+namespace RB2MoneyEditor2025.x360
 {
     /// <summary>
     /// File manipulation type
@@ -302,7 +302,7 @@ namespace RB2MoneyEditor2024.x360
             xKV.Position = 0x9B8 + xbase;
             xC = xKV.ReadBytes(0x1A8);
             // D is a constant
-            xK.D = RB2MoneyEditor2024.Properties.Resources.XK0;
+            xK.D = RB2MoneyEditor2025.Properties.Resources.XK0;
             xKV.Position = 0x28C + xbase;
             xK.Exponent = xKV.ReadBytes(4);
             xKV.Position = 0x298 + xbase;
@@ -351,18 +351,18 @@ namespace RB2MoneyEditor2024.x360
             switch (xTypeIn)
             {
                 case StrongSigned.LIVE:
-                    xReader = new DJsIO(RB2MoneyEditor2024.Properties.Resources.XK4, true);
+                    xReader = new DJsIO(RB2MoneyEditor2025.Properties.Resources.XK4, true);
                     break;
 
                 case StrongSigned.PIRS:
-                    xReader = new DJsIO(RB2MoneyEditor2024.Properties.Resources.XK5, true);
+                    xReader = new DJsIO(RB2MoneyEditor2025.Properties.Resources.XK5, true);
                     break;
 
                 default:
                     throw STFSExcepts.NotStrong;
             }
             xK.Exponent = new byte[] { 0, 0, 0, 3 };
-            xK.D = RB2MoneyEditor2024.Properties.Resources.XK3;
+            xK.D = RB2MoneyEditor2025.Properties.Resources.XK3;
             xReader.Position = 0;
             xK.Modulus = xReader.ReadBytes(0x100);
             xK.P = xReader.ReadBytes(0x80);

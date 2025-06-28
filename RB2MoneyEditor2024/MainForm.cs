@@ -3,9 +3,9 @@ using System.Windows.Forms;
 using System.IO;
 using System.Linq;
 using System.Text;
-using RB2MoneyEditor2024.x360;
+using RB2MoneyEditor2025.x360;
 
-namespace RB2MoneyEditor2024
+namespace RB2MoneyEditor2025
 {
     public partial class MainForm : Form
     {        

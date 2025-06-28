@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace RB2MoneyEditor2024
+namespace RB2MoneyEditor2025
 {
     internal static class Program
     {

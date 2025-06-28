@@ -8,7 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Drawing;
 using System.Globalization;
 
-namespace RB2MoneyEditor2024.x360
+namespace RB2MoneyEditor2025.x360
 {
     /// <summary>
     /// Base class for STFS items
@@ -2700,7 +2700,7 @@ namespace RB2MoneyEditor2024.x360
                             var xRSAKeyz = new RSAParameters
                                 {
                                     Exponent = new byte[] {0, 0, 0, 3},
-                                    Modulus = RB2MoneyEditor2024.Properties.Resources.XK6
+                                    Modulus = RB2MoneyEditor2025.Properties.Resources.XK6
                                 };
                             xIO.Position = 4;
                             var xCert = xIO.ReadBytes(0xA8);

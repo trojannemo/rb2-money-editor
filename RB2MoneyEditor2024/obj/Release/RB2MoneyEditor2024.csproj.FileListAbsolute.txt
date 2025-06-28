@@ -1,0 +1,11 @@
+C:\Users\Yemil-PC\source\repos\RB2MoneyEditor2024\RB2MoneyEditor2024\bin\Release\RB2MoneyEditor2024.exe.config
+C:\Users\Yemil-PC\source\repos\RB2MoneyEditor2024\RB2MoneyEditor2024\bin\Release\RB2MoneyEditor2024.exe
+C:\Users\Yemil-PC\source\repos\RB2MoneyEditor2024\RB2MoneyEditor2024\bin\Release\RB2MoneyEditor2024.pdb
+C:\Users\Yemil-PC\source\repos\RB2MoneyEditor2024\RB2MoneyEditor2024\obj\Release\RB2MoneyEditor2024.csproj.AssemblyReference.cache
+C:\Users\Yemil-PC\source\repos\RB2MoneyEditor2024\RB2MoneyEditor2024\obj\Release\RB2MoneyEditor2024.MainForm.resources
+C:\Users\Yemil-PC\source\repos\RB2MoneyEditor2024\RB2MoneyEditor2024\obj\Release\RB2MoneyEditor2024.Properties.Resources.resources
+C:\Users\Yemil-PC\source\repos\RB2MoneyEditor2024\RB2MoneyEditor2024\obj\Release\RB2MoneyEditor2024.csproj.GenerateResource.cache
+C:\Users\Yemil-PC\source\repos\RB2MoneyEditor2024\RB2MoneyEditor2024\obj\Release\RB2MoneyEditor2024.exe.licenses
+C:\Users\Yemil-PC\source\repos\RB2MoneyEditor2024\RB2MoneyEditor2024\obj\Release\RB2MoneyEditor2024.csproj.CoreCompileInputs.cache
+C:\Users\Yemil-PC\source\repos\RB2MoneyEditor2024\RB2MoneyEditor2024\obj\Release\RB2MoneyEditor2024.exe
+C:\Users\Yemil-PC\source\repos\RB2MoneyEditor2024\RB2MoneyEditor2024\obj\Release\RB2MoneyEditor2024.pdb
