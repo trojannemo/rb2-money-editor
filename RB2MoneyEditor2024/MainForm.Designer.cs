@@ -14,10 +14,10 @@ namespace RB2MoneyEditor2025
         private void InitializeComponent()
         {            
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.lblMoney = new System.Windows.Forms.Label();
+            this.lblNewMoney = new System.Windows.Forms.Label();
             this.txtNewMoney = new System.Windows.Forms.TextBox();
             this.txtCurrentMoney = new System.Windows.Forms.TextBox();
-            this.lblCurrMoney = new System.Windows.Forms.Label();
+            this.lblCurrentMoney = new System.Windows.Forms.Label();
             this.imgBanner = new System.Windows.Forms.PictureBox();
             this.btnAbout = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -32,15 +32,15 @@ namespace RB2MoneyEditor2025
             // 
             // lblMoney
             // 
-            this.lblMoney.AutoSize = true;
-            this.lblMoney.BackColor = System.Drawing.Color.Transparent;
-            this.lblMoney.ForeColor = System.Drawing.Color.Black;
-            this.lblMoney.Location = new System.Drawing.Point(16, 139);
-            this.lblMoney.Name = "lblMoney";
-            this.lblMoney.Size = new System.Drawing.Size(67, 13);
-            this.lblMoney.TabIndex = 6;
-            this.lblMoney.Text = "New Money:";
-            this.lblMoney.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblNewMoney.AutoSize = true;
+            this.lblNewMoney.BackColor = System.Drawing.Color.Transparent;
+            this.lblNewMoney.ForeColor = System.Drawing.Color.Black;
+            this.lblNewMoney.Location = new System.Drawing.Point(16, 139);
+            this.lblNewMoney.Name = "lblMoney";
+            this.lblNewMoney.Size = new System.Drawing.Size(67, 13);
+            this.lblNewMoney.TabIndex = 6;
+            this.lblNewMoney.Text = "New Money:";
+            this.lblNewMoney.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtNewMoney
             // 
@@ -61,14 +61,14 @@ namespace RB2MoneyEditor2025
             // 
             // lblCurrMoney
             // 
-            this.lblCurrMoney.AutoSize = true;
-            this.lblCurrMoney.BackColor = System.Drawing.Color.Transparent;
-            this.lblCurrMoney.Location = new System.Drawing.Point(4, 113);
-            this.lblCurrMoney.Name = "lblCurrMoney";
-            this.lblCurrMoney.Size = new System.Drawing.Size(79, 13);
-            this.lblCurrMoney.TabIndex = 3;
-            this.lblCurrMoney.Text = "Current Money:";
-            this.lblCurrMoney.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCurrentMoney.AutoSize = true;
+            this.lblCurrentMoney.BackColor = System.Drawing.Color.Transparent;
+            this.lblCurrentMoney.Location = new System.Drawing.Point(4, 113);
+            this.lblCurrentMoney.Name = "lblCurrMoney";
+            this.lblCurrentMoney.Size = new System.Drawing.Size(79, 13);
+            this.lblCurrentMoney.TabIndex = 3;
+            this.lblCurrentMoney.Text = "Current Money:";
+            this.lblCurrentMoney.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // imgBanner
             // 
@@ -185,8 +185,8 @@ namespace RB2MoneyEditor2025
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtOffset);
             this.Controls.Add(this.btnMaxMoney);
-            this.Controls.Add(this.lblMoney);
-            this.Controls.Add(this.lblCurrMoney);
+            this.Controls.Add(this.lblNewMoney);
+            this.Controls.Add(this.lblCurrentMoney);
             this.Controls.Add(this.txtCurrentMoney);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAbout);

@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using RB2MoneyEditor2025.x360;
+using System.Reflection;
 
 namespace RB2MoneyEditor2025
 {
@@ -13,8 +14,8 @@ namespace RB2MoneyEditor2025
         private Button btnAbout;
         private Button btnSave;
         private Button btnOpen;
-        private Label lblCurrMoney;
-        private Label lblMoney;
+        private Label lblCurrentMoney;
+        private Label lblNewMoney;
         private TextBox txtNewMoney;
         private TextBox txtCurrentMoney;
         private string inputFile;
@@ -25,6 +26,8 @@ namespace RB2MoneyEditor2025
         private byte[] decryptedSave;
         private byte[] strippedSave;
         private uint xorKey;
+        private bool isPS3Save;
+        private byte[] ps3Header;
 
         public MainForm()
         {
@@ -88,9 +91,14 @@ namespace RB2MoneyEditor2025
 
         private void ValidateInputFile(string inFile)
         {
-            if (!string.IsNullOrEmpty(Path.GetExtension(inFile)) || VariousFunctions.ReadFileType(inFile) != XboxFileType.STFS)
+            isPS3Save = false;
+            if (Path.GetFileName(inFile).ToLowerInvariant() == "rb2.sav")
             {
-                MessageBox.Show("Invalid input file, please use the extensionless 'band' file", "Invalid File", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                isPS3Save = true;
+            }
+            else if (VariousFunctions.ReadFileType(inFile) != XboxFileType.STFS)
+            {
+                MessageBox.Show("Invalid input file!\nOnly valid files are Xbox 360 'band' files and PS3 'RB2.SAV' files", "Invalid File", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
             inputFile = inFile;                      
@@ -115,25 +123,38 @@ namespace RB2MoneyEditor2025
                 File.Copy(inputFile, inputFile + ".bak", true);
             }
 
-            savePackage = new STFSPackage(inputFile);
-            if (!savePackage.ParseSuccess)
+            if (isPS3Save)
             {
-                MessageBox.Show("Failed to parse input file", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
+                encryptedSave = File.ReadAllBytes(inputFile); //no container
             }
-            var xSave = savePackage.GetFile("save.dat");
-            if (xSave == null)
-            {
+            else //Xbox 360
+            {     
+                savePackage = new STFSPackage(inputFile);
                 if (!savePackage.ParseSuccess)
                 {
-                    MessageBox.Show("Could not locate save.dat file in input file", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    savePackage.CloseIO();
+                    MessageBox.Show("Failed to parse input file", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
-            }
-            encryptedSave = xSave.Extract();               
+                var xSave = savePackage.GetFile("save.dat");
+                if (xSave == null)
+                {
+                    if (!savePackage.ParseSuccess)
+                    {
+                        MessageBox.Show("Could not locate save.dat file in input file", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        savePackage.CloseIO();
+                        return;
+                    }
+                }
+                encryptedSave = xSave.Extract();
+            }              
             strippedSave = encryptedSave.Skip(4).ToArray();
             decryptedSave = dtb_decrypt(strippedSave);
+            
+            if (isPS3Save)
+            {
+                ps3Header = decryptedSave.Take(145).ToArray();
+                decryptedSave = decryptedSave.Skip(145).ToArray();
+            }            
 
             int nameLength = BitConverter.ToInt32(decryptedSave, 0x0C);
             txtName.Text = Encoding.ASCII.GetString(decryptedSave, 0x10, nameLength);
@@ -143,6 +164,10 @@ namespace RB2MoneyEditor2025
             if (moneyOffset == -1)
             {
                 MessageBox.Show("Failed to locate money offset, can't continue", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                if (!isPS3Save)
+                {
+                    savePackage.CloseIO();
+                }
                 return;
             }
 
@@ -459,6 +484,10 @@ namespace RB2MoneyEditor2025
         {          
             Array.Copy(BitConverter.GetBytes(Convert.ToInt32(txtNewMoney.Text)), 0, decryptedSave, moneyOffset, 4);
 
+            if (isPS3Save)
+            {
+                decryptedSave = ps3Header.Concat(decryptedSave).ToArray();
+            }
             byte[] reEncrypted = dtb_encrypt(decryptedSave);
 
             byte[] finalSave = new byte[reEncrypted.Length + 4];
@@ -468,37 +497,44 @@ namespace RB2MoneyEditor2025
             finalSave[3] = 0x00;
             Array.Copy(reEncrypted, 0, finalSave, 4, reEncrypted.Length);
 
-            var xSave = savePackage.GetFile("save.dat");
-            if (!xSave.Inject(new DJsIO(finalSave, true)))
-            {
-                MessageBox.Show("Failed to modify save.dat file", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                savePackage.CloseIO();
-                return;
-            }
-
-            //sign CON file
             var success = false;
-            try
+            if (isPS3Save)
             {
-                var kv = new RSAParams(Application.StartupPath + "\\KV.bin");
-                if (kv.Valid)
-                {
-                    savePackage.FlushPackage(kv);
-                    savePackage.UpdateHeader(kv);
-                    success = true;
-                }
-                else
-                {
-                    success = false;
-                }
-                savePackage.CloseIO();
+                File.WriteAllBytes(inputFile, finalSave);
+                success = true;
             }
-            catch
+            else
             {
-                savePackage.CloseIO();
-                success = false;
-            }
+                var xSave = savePackage.GetFile("save.dat");
+                if (!xSave.Inject(new DJsIO(finalSave, true)))
+                {
+                    MessageBox.Show("Failed to modify save.dat file", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    savePackage.CloseIO();
+                    return;
+                }
 
+                //sign CON file                
+                try
+                {
+                    var kv = new RSAParams(Application.StartupPath + "\\KV.bin");
+                    if (kv.Valid)
+                    {
+                        savePackage.FlushPackage(kv);
+                        savePackage.UpdateHeader(kv);
+                        success = true;
+                    }
+                    else
+                    {
+                        success = false;
+                    }
+                    savePackage.CloseIO();
+                }
+                catch
+                {
+                    savePackage.CloseIO();
+                    success = false;
+                }                
+            }
             if (success)
             {
                 MessageBox.Show("Modified save game file successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -524,13 +560,19 @@ namespace RB2MoneyEditor2025
 
         private void btnAbout_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Rock Band 2 Money Editor (2025)\n\nInspired by an executable dating back to 2012 by an unknown creator\n" +
+            MessageBox.Show("Rock Band 2 Money Editor (2025) " + GetAppVersion() + "\n\nInspired by an executable dating back to 2012 by an unknown creator\n" +
                 "Original executable refuses to run and it is unknown if it actually worked - based on thorough decompilation of the obfuscated" +
                 " source code it is my opinion that it would not actually work\n\nThis version was created by Nemo in 2025 as a proof of concept " +
                 "based on the decompiled source code of the original, plus the necessary DTB decryption routines taken from StackOverflow0x's Rock Band 3 Save " +
                 "Game Scores Editor and further improvements by Nemo\n\nEnjoy", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private static string GetAppVersion()
+        {
+            var vers = Assembly.GetExecutingAssembly().GetName().Version;
+            return "v" + String.Format("{0}.{1}.{2}", vers.Major, vers.Minor, vers.Build);
+
+        }
         private void btnMaxMoney_Click(object sender, EventArgs e)
         {
             txtNewMoney.Text = int.MaxValue.ToString();            
