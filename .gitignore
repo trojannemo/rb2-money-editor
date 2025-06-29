@@ -1,0 +1,27 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/RB2MoneyEditor2025/FileContentIndex/ef488f15-3f5b-43d7-b7a1-d515f007f704.vsidx
+/.vs/RB2MoneyEditor2025/v17/.suo
+/.vs/RB2MoneyEditor2025/v17/DocumentLayout.backup.json
+/.vs/RB2MoneyEditor2025/v17/DocumentLayout.json
+/RB2MoneyEditor2024/bin/Debug/RB2MoneyEditor2025.exe
+/RB2MoneyEditor2024/bin/Debug/RB2MoneyEditor2025.exe.config
+/RB2MoneyEditor2024/bin/Debug/RB2MoneyEditor2025.pdb
+/RB2MoneyEditor2024/bin/Release/RB2MoneyEditor2025.exe
+/RB2MoneyEditor2024/bin/Release/RB2MoneyEditor2025.pdb
+/RB2MoneyEditor2024/obj/Debug/TempPE/Properties.Resources.Designer.cs.dll
+/RB2MoneyEditor2024/obj/Debug/RB2MoneyEditor2025.csproj.AssemblyReference.cache
+/RB2MoneyEditor2024/obj/Debug/RB2MoneyEditor2025.csproj.FileListAbsolute.txt
+/RB2MoneyEditor2024/obj/Debug/RB2MoneyEditor2025.csproj.CoreCompileInputs.cache
+/RB2MoneyEditor2024/obj/Debug/RB2MoneyEditor2025.csproj.GenerateResource.cache
+/RB2MoneyEditor2024/obj/Debug/RB2MoneyEditor2025.exe
+/RB2MoneyEditor2024/obj/Debug/rb2moneyeditor2025.exe.licenses
+/RB2MoneyEditor2024/obj/Debug/RB2MoneyEditor2025.MainForm.resources
+/RB2MoneyEditor2024/obj/Debug/RB2MoneyEditor2025.pdb
+/RB2MoneyEditor2024/obj/Debug/RB2MoneyEditor2025.Properties.Resources.resources
+/RB2MoneyEditor2024/obj/Release/DesignTimeResolveAssemblyReferences.cache
+/RB2MoneyEditor2024/obj/Release/RB2MoneyEditor2025.csproj.AssemblyReference.cache
+/RB2MoneyEditor2024/obj/Release/RB2MoneyEditor2025.exe
+/RB2MoneyEditor2024/obj/Release/RB2MoneyEditor2025.pdb
