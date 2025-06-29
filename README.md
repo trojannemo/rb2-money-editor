@@ -20,19 +20,19 @@ As always, I put my own spin on it - enjoy!
 
 **HOW TO USE IT**
 
-The program will only accept an Xbox 360 "band" save game file - it will choke if it's not from Rock Band 2 so do not try another Rock Band game's save game file!
+The program will accept an Xbox 360 "band" save game file or a PS3 (RPCS3) "RB2.SAV" save game file - sorry no current support for Wii (yet) - message me if you're a Wii player and want to colaborate on making it happen
 
-Transfer your band file from your Xbox 360 to your computer
+Grab your Xbox 360 or PS3 (RPCS3) save game file
 
 You can either click on the Open File button or (how I do it), drag and drop the file to the form
 
-It will display your player name, the offset where the money value is stored in your save file (it varies from file to file), and it will display your current money value
+It will display your player name, your band name, the offset where the money value is stored in your save file (it varies from file to file), and it will display your current money value
 
 You can manually enter a money value amount or click Max Money if you just want to go straight to the max value (0xFFFFFF or 2,147,483,647)
 
-Click save
+Click Save Changes
 
-Transfer the band file back to your Xbox 360
+Transfer the save game file back to your Xbox 360 or PS3 (RPCS3)
 
 Profit
 
@@ -41,7 +41,7 @@ Profit
 
 Find me (Nemo) on Discord - I have my own server called Nemo's Nautilus where I provide support for all my little applications
 
-Send me your band file and tell me 1) is your Xbox 360 retail or RGH/JTAG? 2) are you running "vanilla" Xbox 360 or RB2 Deluxe? 3) what is your player name and how much money *should* you have in the Rock Shop?
+Send me your save game file and tell me what is your player name and how much money you *should* have in the Rock Shop
 
 I will take a look at your file and see what I can find
 
