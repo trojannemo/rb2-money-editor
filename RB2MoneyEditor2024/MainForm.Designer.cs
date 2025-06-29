@@ -23,20 +23,22 @@ namespace RB2MoneyEditor2025
             this.btnSave = new System.Windows.Forms.Button();
             this.btnOpen = new System.Windows.Forms.Button();
             this.btnMaxMoney = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblMoneyOffset = new System.Windows.Forms.Label();
             this.txtOffset = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.txtBand = new System.Windows.Forms.TextBox();
+            this.lblBand = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgBanner)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblMoney
+            // lblNewMoney
             // 
             this.lblNewMoney.AutoSize = true;
             this.lblNewMoney.BackColor = System.Drawing.Color.Transparent;
             this.lblNewMoney.ForeColor = System.Drawing.Color.Black;
-            this.lblNewMoney.Location = new System.Drawing.Point(16, 139);
-            this.lblNewMoney.Name = "lblMoney";
+            this.lblNewMoney.Location = new System.Drawing.Point(20, 165);
+            this.lblNewMoney.Name = "lblNewMoney";
             this.lblNewMoney.Size = new System.Drawing.Size(67, 13);
             this.lblNewMoney.TabIndex = 6;
             this.lblNewMoney.Text = "New Money:";
@@ -44,27 +46,27 @@ namespace RB2MoneyEditor2025
             // 
             // txtNewMoney
             // 
-            this.txtNewMoney.Location = new System.Drawing.Point(89, 136);
+            this.txtNewMoney.Location = new System.Drawing.Point(93, 162);
             this.txtNewMoney.MaxLength = 9;
             this.txtNewMoney.Name = "txtNewMoney";
-            this.txtNewMoney.Size = new System.Drawing.Size(100, 20);
+            this.txtNewMoney.Size = new System.Drawing.Size(96, 20);
             this.txtNewMoney.TabIndex = 5;
             this.txtNewMoney.TextChanged += new System.EventHandler(this.txtNewMoney_TextChanged);
             // 
             // txtCurrentMoney
             // 
-            this.txtCurrentMoney.Location = new System.Drawing.Point(89, 110);
+            this.txtCurrentMoney.Location = new System.Drawing.Point(93, 136);
             this.txtCurrentMoney.Name = "txtCurrentMoney";
             this.txtCurrentMoney.ReadOnly = true;
-            this.txtCurrentMoney.Size = new System.Drawing.Size(100, 20);
+            this.txtCurrentMoney.Size = new System.Drawing.Size(96, 20);
             this.txtCurrentMoney.TabIndex = 4;
             // 
-            // lblCurrMoney
+            // lblCurrentMoney
             // 
             this.lblCurrentMoney.AutoSize = true;
             this.lblCurrentMoney.BackColor = System.Drawing.Color.Transparent;
-            this.lblCurrentMoney.Location = new System.Drawing.Point(4, 113);
-            this.lblCurrentMoney.Name = "lblCurrMoney";
+            this.lblCurrentMoney.Location = new System.Drawing.Point(8, 139);
+            this.lblCurrentMoney.Name = "lblCurrentMoney";
             this.lblCurrentMoney.Size = new System.Drawing.Size(79, 13);
             this.lblCurrentMoney.TabIndex = 3;
             this.lblCurrentMoney.Text = "Current Money:";
@@ -75,7 +77,7 @@ namespace RB2MoneyEditor2025
             this.imgBanner.BackColor = System.Drawing.Color.Transparent;
             this.imgBanner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.imgBanner.Image = global::RB2MoneyEditor2025.Properties.Resources.header;
-            this.imgBanner.Location = new System.Drawing.Point(-8, 193);
+            this.imgBanner.Location = new System.Drawing.Point(-4, 217);
             this.imgBanner.Name = "imgBanner";
             this.imgBanner.Size = new System.Drawing.Size(269, 96);
             this.imgBanner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -126,51 +128,70 @@ namespace RB2MoneyEditor2025
             this.btnMaxMoney.BackColor = System.Drawing.Color.White;
             this.btnMaxMoney.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMaxMoney.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaxMoney.Location = new System.Drawing.Point(89, 163);
+            this.btnMaxMoney.Location = new System.Drawing.Point(93, 189);
             this.btnMaxMoney.Name = "btnMaxMoney";
-            this.btnMaxMoney.Size = new System.Drawing.Size(100, 22);
+            this.btnMaxMoney.Size = new System.Drawing.Size(96, 22);
             this.btnMaxMoney.TabIndex = 7;
             this.btnMaxMoney.Text = "&Max Money";
             this.btnMaxMoney.UseVisualStyleBackColor = false;
             this.btnMaxMoney.Click += new System.EventHandler(this.btnMaxMoney_Click);
             // 
-            // label1
+            // lblMoneyOffset
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(10, 87);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Money Offset:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblMoneyOffset.AutoSize = true;
+            this.lblMoneyOffset.BackColor = System.Drawing.Color.Transparent;
+            this.lblMoneyOffset.Location = new System.Drawing.Point(14, 113);
+            this.lblMoneyOffset.Name = "lblMoneyOffset";
+            this.lblMoneyOffset.Size = new System.Drawing.Size(73, 13);
+            this.lblMoneyOffset.TabIndex = 8;
+            this.lblMoneyOffset.Text = "Money Offset:";
+            this.lblMoneyOffset.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtOffset
             // 
-            this.txtOffset.Location = new System.Drawing.Point(89, 84);
+            this.txtOffset.Location = new System.Drawing.Point(93, 110);
             this.txtOffset.Name = "txtOffset";
             this.txtOffset.ReadOnly = true;
-            this.txtOffset.Size = new System.Drawing.Size(100, 20);
+            this.txtOffset.Size = new System.Drawing.Size(96, 20);
             this.txtOffset.TabIndex = 9;
             // 
-            // label2
+            // lblName
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(10, 61);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Player Name:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblName.AutoSize = true;
+            this.lblName.BackColor = System.Drawing.Color.Transparent;
+            this.lblName.Location = new System.Drawing.Point(17, 61);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(70, 13);
+            this.lblName.TabIndex = 10;
+            this.lblName.Text = "Player Name:";
+            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(89, 58);
+            this.txtName.Location = new System.Drawing.Point(93, 58);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(100, 20);
+            this.txtName.Size = new System.Drawing.Size(96, 20);
             this.txtName.TabIndex = 11;
+            // 
+            // txtBand
+            // 
+            this.txtBand.Location = new System.Drawing.Point(93, 84);
+            this.txtBand.Name = "txtBand";
+            this.txtBand.ReadOnly = true;
+            this.txtBand.Size = new System.Drawing.Size(156, 20);
+            this.txtBand.TabIndex = 13;
+            // 
+            // lblBand
+            // 
+            this.lblBand.AutoSize = true;
+            this.lblBand.BackColor = System.Drawing.Color.Transparent;
+            this.lblBand.Location = new System.Drawing.Point(21, 87);
+            this.lblBand.Name = "lblBand";
+            this.lblBand.Size = new System.Drawing.Size(66, 13);
+            this.lblBand.TabIndex = 12;
+            this.lblBand.Text = "Band Name:";
+            this.lblBand.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // MainForm
             // 
@@ -179,10 +200,12 @@ namespace RB2MoneyEditor2025
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(260, 288);
+            this.ClientSize = new System.Drawing.Size(260, 313);
+            this.Controls.Add(this.txtBand);
+            this.Controls.Add(this.lblBand);
             this.Controls.Add(this.txtName);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblName);
+            this.Controls.Add(this.lblMoneyOffset);
             this.Controls.Add(this.txtOffset);
             this.Controls.Add(this.btnMaxMoney);
             this.Controls.Add(this.lblNewMoney);
@@ -210,9 +233,11 @@ namespace RB2MoneyEditor2025
         }
 
         private Button btnMaxMoney;
-        private Label label1;
+        private Label lblMoneyOffset;
         private TextBox txtOffset;
-        private Label label2;
+        private Label lblName;
         private TextBox txtName;
+        private TextBox txtBand;
+        private Label lblBand;
     }        
 }

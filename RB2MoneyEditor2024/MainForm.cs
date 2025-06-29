@@ -107,6 +107,8 @@ namespace RB2MoneyEditor2025
 
         public void ReadFile()
         {
+            txtName.Text = "";
+            txtBand.Text = "";
             txtCurrentMoney.Text = "";
             txtNewMoney.Text = "";
             txtOffset.Text = "";
@@ -179,6 +181,49 @@ namespace RB2MoneyEditor2025
             txtNewMoney.Focus();
         }
 
+        string GetBandName(byte[] data)
+        {
+            var bandName = "";
+            try
+            {
+                byte[] pattern = new byte[] { 0x01, 0x00, 0x00, 0x00, 0x31, 0x00, 0x00, 0x00 }; //fixed identifier
+                int patternIndex = -1;
+
+                // Search for pattern
+                for (int i = 0; i <= data.Length - pattern.Length; i++)
+                {
+                    bool found = true;
+                    for (int j = 0; j < pattern.Length; j++)
+                    {
+                        if (data[i + j] != pattern[j])
+                        {
+                            found = false;
+                            break;
+                        }
+                    }
+
+                    if (found)
+                    {
+                        patternIndex = i;
+                        break;
+                    }
+                }
+
+                if (patternIndex >= 0)
+                {
+                    int lengthOffset = patternIndex + pattern.Length;
+                    int bandNameLength = BitConverter.ToInt32(data, lengthOffset);
+                    int bandNameOffset = lengthOffset + 4;
+                    bandName = Encoding.ASCII.GetString(data, bandNameOffset, bandNameLength);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error getting band name:\n\n" + ex.Message + "\n\n" + ex.StackTrace, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return bandName;
+        }
+
         long FindMoneyOffset(byte[] data)
         {
             var offset = 0;
@@ -188,6 +233,7 @@ namespace RB2MoneyEditor2025
                 var length = BitConverter.ToInt32(data, offset); //length of player name string
                 offset += 4;
                 txtName.Text = Encoding.ASCII.GetString(data, offset, length); //read player name
+                txtBand.Text = GetBandName(data);
                 offset += length;
                 offset += 31; //ignore unknown bytes
                 length = BitConverter.ToInt32(data, offset); //length of next string
