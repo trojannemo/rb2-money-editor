@@ -39,7 +39,7 @@ Profit
 
 **IT'S NOT WORKING FOR ME!**
 
-Find me (Nemo) on Discord - I have my own server called Nemo's Nautilus where I provide support for all my little applications
+Find me (Nemo) on Discord - **I have my own server called Nemo's Nautilus where I provide support for all my little applications**
 
 Send me your save game file and tell me what is your player name and how much money you *should* have in the Rock Shop
 
