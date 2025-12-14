@@ -1,51 +1,99 @@
-**Rock Band 2 Money Editor (2025)**
+# 💰 Rock Band 2 Money Editor (2025)
 
-**WHAT IS IT**
+---
 
-Inspired by an obscure executable found by Discord user Bubbles dating back to 2012 by an unknown creator, it is a simple Windows application to edit the money value in your Rock Band 2 save game file
+## What Is This?
 
-The original executable refuses to run even under compatibity mode so it is unknown if it actually worked at what it purported to do - based on thorough decompilation of the heavily obfuscated source code, it is my opinion that it would not actually work as intended
+**Rock Band 2 Money Editor** is a simple Windows application that allows you to edit the **money value** in your **Rock Band 2 save game file**.
 
+The project was inspired by an obscure executable discovered by Discord user **Bubbles**, dating back to **2012**, created by an unknown author. Unfortunately, the original executable refuses to run — even under compatibility mode — and it is unclear whether it ever actually worked as advertised.
 
-I created this version in June of 2025 as a proof of concept after much effort decompiling and reversing the source code of the original
+After thoroughly decompiling and analyzing the heavily obfuscated source code, it is my opinion that the original tool **would not have functioned correctly**.
 
-It wasn't until I gave up on trying to recreate the original and instead decided to tackle the project from scratch that I started to make progress
+---
 
+## Project Background
 
-This wouldn't be possible without the DTB decryption code taken from StackOverflow0x's Rock Band 3 Save Game Scores Editor
+I created this version in **June 2025** as a **proof of concept**, following extensive effort reversing and studying the original application.
 
+Progress only truly began once I abandoned the idea of recreating the original behavior and instead chose to **rebuild the project from scratch**, using modern tooling and a clean approach.
 
-As always, I put my own spin on it - enjoy!
+This project would not have been possible without the **DTB decryption code** from **StackOverflow0x’s Rock Band 3 Save Game Scores Editor**.
 
+As always, I put my own spin on it — enjoy!
 
-**HOW TO USE IT**
+---
 
-The program will accept an Xbox 360 "band" save game file or a PS3 (RPCS3) "RB2.SAV" save game file - sorry no current support for Wii (yet) - message me if you're a Wii player and want to colaborate on making it happen
+## Supported Save Files
 
-Grab your Xbox 360 or PS3 (RPCS3) save game file
+The application currently supports:
 
-You can either click on the Open File button or (how I do it), drag and drop the file to the form
+- **Xbox 360** Rock Band 2 *band* save game files
+- **PlayStation 3 (RPCS3)** save files (`RB2.SAV`)
 
-It will display your player name, your band name, the offset where the money value is stored in your save file (it varies from file to file), and it will display your current money value
+❌ **Wii is not supported at this time**
 
-You can manually enter a money value amount or click Max Money if you just want to go straight to the max value (0xFFFFFF or 2,147,483,647)
+> If you are a Wii player and want to collaborate on adding support, feel free to reach out.
 
-Click Save Changes
+---
 
-Transfer the save game file back to your Xbox 360 or PS3 (RPCS3)
+## How to Use
 
-Profit
+1. Obtain your **Rock Band 2 save game file**  
+   (Xbox 360 or PS3 / RPCS3)
 
+2. Open the application and:
+   - Click **Open File**, **or**
+   - Drag and drop the save file onto the window
 
-**IT'S NOT WORKING FOR ME!**
+3. The application will display:
+   - Player name
+   - Band name
+   - Offset where the money value is stored  
+     *(this varies between save files)*
+   - Current money value
 
-Find me (Nemo) on Discord - **I have my own server called Nemo's Nautilus where I provide support for all my little applications**
+4. Choose how to edit your money:
+   - Enter a custom value manually, **or**
+   - Click **Max Money** to set the value to:
+     - `0xFFFFFF`  
+     - `2,147,483,647`
 
-Send me your save game file and tell me what is your player name and how much money you *should* have in the Rock Shop
+5. Click **Save Changes**
 
-I will take a look at your file and see what I can find
+6. Transfer the edited save file back to:
+   - Your Xbox 360, or
+   - RPCS3
 
+7. **Profit**
 
-**BACK UP YOUR FILE BEFORE TRYING TO EDIT IT**
+---
 
-The application will automatically create a .bak file to backup your original before it does any editing, but I always recommend you do your own redundant backup. ***I can NOT restore a corrupted file.***
+## It’s Not Working for Me!
+
+If you’re having issues:
+
+- Find me (**Nemo**) on Discord  
+- I run a server called **“Nemo’s Nautilus”**, where I provide support for my tools
+
+When reaching out, please include:
+- Your save game file
+- Your player name
+- The amount of money you believe you should have in the Rock Shop
+
+I’ll take a look and see what I can find.
+
+---
+
+## ⚠️ Important — Backup Your Save File
+
+The application automatically creates a **`.bak` backup** of your original save file before making any changes.
+
+That said:
+
+- **Always make your own backup as well**
+- I **cannot restore corrupted save files**
+
+Use at your own risk — backups are your safety net.
+
+---
