@@ -1,5 +1,7 @@
 # 💰 Rock Band 2 Money Editor (2025)
 
+![RB2 Money Editor](https://nemosnautilus.com/money/money.png)
+
 ---
 
 ## What Is This?
